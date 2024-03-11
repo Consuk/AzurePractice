@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome New User</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .welcome-message {
+            font-size: 24px;
+            color: #009688;
+        }
+
+        .heart {
+            color: #e91e63;
+            animation: beat 1.5s infinite;
+        }
+
+        @keyframes beat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thank you for your registration!!</h2>
+        <p class="welcome-message">Welcome, <span id="username"></span>!</p>
+        <span class="heart">❤️</span>
+        <p>Want to see our content? <a href="./gif.html">Click me</a></p>
+    </div>
+
+    <script>
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const username = getQueryParam('username');
+
+        document.getElementById('username').innerText = username;
+    </script>
+</body>
+</html>
